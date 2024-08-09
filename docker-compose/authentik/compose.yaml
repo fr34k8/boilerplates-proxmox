@@ -1,7 +1,7 @@
 ---
 services:
   postgres:
-    image: docker.io/library/postgres:16.3
+    image: docker.io/library/postgres:16.4
     container_name: authentik-db
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-authentik}
@@ -31,7 +31,7 @@ services:
       - redis_data:/data
     restart: unless-stopped
   server:
-    image: ghcr.io/goauthentik/server:2024.6.2
+    image: ghcr.io/goauthentik/server:2024.6.3
     container_name: authentik-server
     command: server
     environment:
@@ -65,7 +65,7 @@ services:
       - redis
     restart: unless-stopped
   worker:
-    image: ghcr.io/goauthentik/server:2024.6.2
+    image: ghcr.io/goauthentik/server:2024.6.3
     container_name: authentik-worker
     command: worker
     environment:
